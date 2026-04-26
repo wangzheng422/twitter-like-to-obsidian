@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Twitter Likes to Obsidian">
+  <rect width="128" height="128" rx="26" fill="#111827"/>
+  <path d="M30 35h42c14 0 26 12 26 26v32H56c-14 0-26-12-26-26V35Z" fill="#2563eb"/>
+  <path d="M50 52c0-7 6-13 14-13s14 6 14 13c0 15-28 29-28 29S22 67 22 52c0-7 6-13 14-13 6 0 11 3 14 8 3-5 8-8 14-8" fill="#f9fafb" opacity=".96"/>
+  <path d="M69 84h29v10H69zM69 66h29v10H69z" fill="#c7d2fe"/>
+</svg>

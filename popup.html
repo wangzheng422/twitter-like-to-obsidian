@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twitter Likes to Obsidian</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <header>
+        <h1>Twitter Likes to Obsidian</h1>
+        <span id="statusPill" class="pill disconnected">Disconnected</span>
+      </header>
+
+      <form id="apiKeyForm" class="field-row">
+        <label for="apiKey">Obsidian API key</label>
+        <div class="input-action">
+          <input id="apiKey" type="password" autocomplete="off" placeholder="Paste API key">
+          <button type="submit">Save</button>
+        </div>
+      </form>
+
+      <section class="stats-panel" aria-label="Session stats">
+        <div class="stats-heading">
+          <span>Session stats</span>
+          <button id="resetStatsButton" class="link-button" type="button">Reset</button>
+        </div>
+        <div class="stats">
+          <div>
+            <span class="label">Saved</span>
+            <strong id="savedCount">0</strong>
+          </div>
+          <div>
+            <span class="label">Captured</span>
+            <strong id="capturedCount">0</strong>
+          </div>
+          <div>
+            <span class="label">Queued</span>
+            <strong id="queuedCount">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="pageStatus" class="page-status">
+        <span id="pageState">Page script inactive</span>
+        <small id="pageDetail">Reload the X likes tab or scan it manually.</small>
+      </section>
+
+      <button id="scanButton" class="secondary" type="button">Scan Page</button>
+      <button id="retryButton" class="secondary" type="button">Retry Now</button>
+      <a class="settings" href="#" id="settingsLink">Settings</a>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
