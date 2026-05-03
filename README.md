@@ -102,6 +102,34 @@ This project is plain JavaScript and does not currently require a build step.
 
 After editing files, reload the unpacked extension from `chrome://extensions`, then refresh any open X/Twitter tab so the latest content script is used.
 
+## Packaging and Release
+
+Build a Chrome Web Store upload zip:
+
+```sh
+make package
+```
+
+The package is written to:
+
+```text
+dist/twitter-likes-to-obsidian-v{version}.zip
+```
+
+Create a GitHub Release and upload the same zip:
+
+```sh
+make release
+```
+
+By default, the release tag is `v{version}` from `manifest.json`. To override it:
+
+```sh
+make release TAG=v1.0.1
+```
+
+GitHub release publishing requires the GitHub CLI (`gh`) to be installed and authenticated.
+
 ## Notes
 
 - The extension only captures tweets that appear in the browser DOM, so keep scrolling to load more likes.
