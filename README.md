@@ -21,13 +21,13 @@ The extension runs entirely in the browser. There is no companion server.
 Tweets are saved into monthly notes:
 
 ```text
-wzh-twitter/monthly/YYYY-MM.md
+wzh-twitter/monthly/YYYY/YYYY-MM.md
 ```
 
-Media is saved under month-scoped asset folders:
+Media is saved under year/month-scoped asset folders:
 
 ```text
-wzh-twitter/assets/YYYY-MM/
+wzh-twitter/assets/YYYY/YYYY-MM/
 ```
 
 Twitter articles, when detected and fetchable, are saved separately:

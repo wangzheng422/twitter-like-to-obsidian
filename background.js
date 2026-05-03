@@ -92,11 +92,14 @@ function extensionFromUrl(url, fallback = "jpg") {
   }
 }
 
-function assetMonthFromTweet(tweet) {
+function assetPeriodFromTweet(tweet) {
   const date = TwitterLikesDedup.dateFromTweet(tweet);
   const year = date.getUTCFullYear();
   const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  return `${year}-${month}`;
+  return {
+    year: String(year),
+    month: `${year}-${month}`
+  };
 }
 
 async function downloadAsset(url) {
@@ -112,29 +115,110 @@ async function downloadAsset(url) {
 
 async function saveAsset(url, month, filename, apiKey) {
   const asset = await downloadAsset(url);
-  const path = `wzh-twitter/assets/${month}/${filename}`;
+  const path = `wzh-twitter/assets/${month.year}/${month.month}/${filename}`;
   await ObsidianApi.putBinary(path, asset.body, asset.contentType, apiKey);
   return path;
 }
 
-async function saveTweetAssets(tweet, apiKey) {
-  const saved = { images: [], quoteImages: [], videoThumbnail: "" };
-  const month = assetMonthFromTweet(tweet);
+function tweetAssetPlan(tweet) {
+  const period = assetPeriodFromTweet(tweet);
+  const assetDir = `wzh-twitter/assets/${period.year}/${period.month}`;
+  const plan = { images: [], quoteImages: [], videoThumbnail: null };
 
   for (const [index, url] of (tweet.images || []).entries()) {
     const ext = extensionFromUrl(url);
-    saved.images.push(await saveAsset(url, month, `${tweet.tweet_id}_${index + 1}.${ext}`, apiKey));
+    plan.images.push({
+      url,
+      path: `${assetDir}/${tweet.tweet_id}_${index + 1}.${ext}`
+    });
   }
 
   if (tweet.video_thumbnail) {
     const ext = extensionFromUrl(tweet.video_thumbnail);
-    saved.videoThumbnail = await saveAsset(tweet.video_thumbnail, month, `${tweet.tweet_id}_video.${ext}`, apiKey);
+    plan.videoThumbnail = {
+      url: tweet.video_thumbnail,
+      path: `${assetDir}/${tweet.tweet_id}_video.${ext}`
+    };
   }
 
   if (tweet.quote_tweet && Array.isArray(tweet.quote_tweet.images)) {
     for (const [index, url] of tweet.quote_tweet.images.entries()) {
       const ext = extensionFromUrl(url);
-      saved.quoteImages.push(await saveAsset(url, month, `${tweet.tweet_id}_qt_${index + 1}.${ext}`, apiKey));
+      plan.quoteImages.push({
+        url,
+        path: `${assetDir}/${tweet.tweet_id}_qt_${index + 1}.${ext}`
+      });
+    }
+  }
+
+  return plan;
+}
+
+async function savePlannedAsset(asset, apiKey) {
+  const downloaded = await downloadAsset(asset.url);
+  await ObsidianApi.putBinary(asset.path, downloaded.body, downloaded.contentType, apiKey);
+  return asset.path;
+}
+
+async function ensureAsset(asset, apiKey) {
+  if (!asset?.url || !asset.path) {
+    return { path: "", repaired: false };
+  }
+  if (await ObsidianApi.exists(asset.path, apiKey)) {
+    return { path: asset.path, repaired: false };
+  }
+  await savePlannedAsset(asset, apiKey);
+  return { path: asset.path, repaired: true };
+}
+
+async function ensureTweetAssets(tweet, apiKey) {
+  const plan = tweetAssetPlan(tweet);
+  const saved = { images: [], quoteImages: [], videoThumbnail: "" };
+  let repaired = false;
+
+  for (const asset of plan.images) {
+    const result = await ensureAsset(asset, apiKey);
+    if (result.path) {
+      saved.images.push(result.path);
+    }
+    repaired = repaired || result.repaired;
+  }
+
+  if (plan.videoThumbnail) {
+    const result = await ensureAsset(plan.videoThumbnail, apiKey);
+    saved.videoThumbnail = result.path;
+    repaired = repaired || result.repaired;
+  }
+
+  for (const asset of plan.quoteImages) {
+    const result = await ensureAsset(asset, apiKey);
+    if (result.path) {
+      saved.quoteImages.push(result.path);
+    }
+    repaired = repaired || result.repaired;
+  }
+
+  return { savedAssets: saved, repaired };
+}
+
+async function saveTweetAssets(tweet, apiKey) {
+  const saved = { images: [], quoteImages: [], videoThumbnail: "" };
+  const period = assetPeriodFromTweet(tweet);
+
+  for (const [index, url] of (tweet.images || []).entries()) {
+    const ext = extensionFromUrl(url);
+    saved.images.push(await saveAsset(url, period, `${tweet.tweet_id}_${index + 1}.${ext}`, apiKey));
+  }
+
+  if (tweet.video_thumbnail) {
+    const ext = extensionFromUrl(tweet.video_thumbnail);
+    saved.videoThumbnail = await saveAsset(tweet.video_thumbnail, period, `${tweet.tweet_id}_video.${ext}`, apiKey);
+  }
+
+  if (tweet.quote_tweet && Array.isArray(tweet.quote_tweet.images)) {
+    for (const [index, url] of tweet.quote_tweet.images.entries()) {
+      const ext = extensionFromUrl(url);
+      saved.quoteImages.push(await saveAsset(url, period, `${tweet.tweet_id}_qt_${index + 1}.${ext}`, apiKey));
     }
   }
 
@@ -186,12 +270,13 @@ async function processTweet(tweet, { fromQueue = false } = {}) {
   const currentMarkdown = await ObsidianApi.getText(monthPath, apiKey);
 
   if (currentMarkdown && currentMarkdown.includes(`<!-- tweet_id: ${enrichedTweet.tweet_id} -->`)) {
+    const assetRepair = await ensureTweetAssets(enrichedTweet, apiKey);
     const articleId = await maybeSaveArticle(enrichedTweet, apiKey);
     const updatedMarkdown = TwitterLikesMarkdown.replaceMonthlyEntryText(
       currentMarkdown,
       enrichedTweet,
       articleId,
-      {}
+      assetRepair.savedAssets
     );
     if (updatedMarkdown && updatedMarkdown !== currentMarkdown) {
       await ObsidianApi.putMarkdown(monthPath, updatedMarkdown, apiKey);
@@ -199,7 +284,14 @@ async function processTweet(tweet, { fromQueue = false } = {}) {
       if (!fromQueue) {
         await flashSavedBadge();
       }
-      return { saved: true, updated: true };
+      return { saved: true, updated: true, repairedAssets: assetRepair.repaired };
+    }
+    if (assetRepair.repaired) {
+      await incrementStat("saved");
+      if (!fromQueue) {
+        await flashSavedBadge();
+      }
+      return { saved: true, repairedAssets: true };
     }
     return { skipped: true };
   }
