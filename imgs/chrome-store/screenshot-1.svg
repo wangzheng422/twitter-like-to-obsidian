@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-label="Twitter Likes to Obsidian Chrome Web Store screenshot">
+  <rect width="1280" height="800" fill="#f8fafc"/>
+  <rect x="0" y="0" width="1280" height="800" fill="#eef2ff"/>
+  <circle cx="1020" cy="94" r="190" fill="#dbeafe"/>
+  <circle cx="147" cy="706" r="230" fill="#ede9fe"/>
+
+  <g transform="translate(72 76)">
+    <rect width="1136" height="648" rx="34" fill="#ffffff"/>
+    <rect width="1136" height="648" rx="34" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(108 110)">
+    <text x="0" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="44" font-weight="800" fill="#111827">Save Twitter Likes to Obsidian</text>
+    <text x="0" y="42" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="19" font-weight="500" fill="#4b5563">Capture liked posts while you scroll, preserve media, and organize notes by year and month.</text>
+  </g>
+
+  <g transform="translate(108 205)">
+    <rect width="366" height="420" rx="18" fill="#0f172a"/>
+    <rect x="0.5" y="0.5" width="365" height="419" rx="18" fill="none" stroke="#334155"/>
+    <rect x="20" y="20" width="326" height="52" rx="14" fill="#111827"/>
+    <text x="44" y="53" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="800" fill="#f8fafc">X / Twitter Likes</text>
+    <circle cx="312" cy="46" r="10" fill="#38bdf8"/>
+
+    <g transform="translate(20 96)">
+      <rect width="326" height="84" rx="14" fill="#1e293b"/>
+      <circle cx="34" cy="34" r="18" fill="#60a5fa"/>
+      <rect x="66" y="22" width="120" height="12" rx="6" fill="#e5e7eb"/>
+      <rect x="66" y="46" width="220" height="9" rx="4.5" fill="#94a3b8"/>
+      <rect x="66" y="64" width="168" height="9" rx="4.5" fill="#64748b"/>
+      <path d="M280 24c0-7 5-12 12-12 5 0 8 3 10 6 2-3 6-6 10-6 7 0 12 5 12 12 0 14-22 25-22 25s-22-11-22-25Z" fill="#ef4444"/>
+    </g>
+
+    <g transform="translate(20 202)">
+      <rect width="326" height="84" rx="14" fill="#1e293b"/>
+      <circle cx="34" cy="34" r="18" fill="#a78bfa"/>
+      <rect x="66" y="22" width="96" height="12" rx="6" fill="#e5e7eb"/>
+      <rect x="66" y="46" width="196" height="9" rx="4.5" fill="#94a3b8"/>
+      <rect x="66" y="64" width="130" height="9" rx="4.5" fill="#64748b"/>
+      <rect x="256" y="24" width="46" height="36" rx="8" fill="#334155"/>
+      <circle cx="270" cy="38" r="6" fill="#22c55e"/>
+      <path d="M260 56 276 43 286 53 296 45 304 60h-44Z" fill="#38bdf8"/>
+    </g>
+
+    <g transform="translate(20 308)">
+      <rect width="326" height="84" rx="14" fill="#1e293b"/>
+      <circle cx="34" cy="34" r="18" fill="#34d399"/>
+      <rect x="66" y="22" width="145" height="12" rx="6" fill="#e5e7eb"/>
+      <rect x="66" y="46" width="206" height="9" rx="4.5" fill="#94a3b8"/>
+      <rect x="66" y="64" width="178" height="9" rx="4.5" fill="#64748b"/>
+      <circle cx="286" cy="44" r="22" fill="#334155"/>
+      <path d="M280 32 300 44 280 56Z" fill="#f8fafc"/>
+    </g>
+  </g>
+
+  <g transform="translate(514 230)">
+    <rect width="252" height="330" rx="22" fill="#f7f8fb"/>
+    <rect width="252" height="330" rx="22" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+    <g transform="translate(22 26)">
+      <text x="0" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="20" font-weight="800" fill="#111827">Twitter Likes to Obsidian</text>
+      <rect x="112" y="20" width="96" height="28" rx="14" fill="#d1fae5"/>
+      <text x="132" y="39" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="800" fill="#065f46">Connected</text>
+
+      <text x="0" y="82" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#4b5563">Obsidian API key</text>
+      <rect x="0" y="96" width="148" height="36" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+      <text x="12" y="119" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" fill="#9ca3af">API key saved</text>
+      <rect x="158" y="96" width="50" height="36" rx="8" fill="#2563eb"/>
+      <text x="169" y="119" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="800" fill="#ffffff">Save</text>
+
+      <text x="0" y="164" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="13" font-weight="800" fill="#4b5563">Session stats</text>
+      <g transform="translate(0 178)">
+        <rect width="208" height="70" rx="10" fill="#ffffff" stroke="#e5e7eb"/>
+        <line x1="69" y1="0" x2="69" y2="70" stroke="#e5e7eb"/>
+        <line x1="138" y1="0" x2="138" y2="70" stroke="#e5e7eb"/>
+        <text x="15" y="25" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="700" fill="#64748b">Saved</text>
+        <text x="19" y="53" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="26" font-weight="800" fill="#111827">42</text>
+        <text x="82" y="25" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="700" fill="#64748b">Seen</text>
+        <text x="84" y="53" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="26" font-weight="800" fill="#111827">48</text>
+        <text x="151" y="25" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="700" fill="#64748b">Queue</text>
+        <text x="166" y="53" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="26" font-weight="800" fill="#111827">0</text>
+      </g>
+
+      <rect x="0" y="270" width="208" height="38" rx="9" fill="#e5e7eb"/>
+      <text x="72" y="294" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="14" font-weight="800" fill="#1f2937">Scan Page</text>
+    </g>
+  </g>
+
+  <g transform="translate(794 205)">
+    <rect width="378" height="420" rx="18" fill="#ffffff"/>
+    <rect width="378" height="420" rx="18" fill="none" stroke="#d8b4fe" stroke-width="2"/>
+    <rect x="0" y="0" width="378" height="54" rx="18" fill="#6d28d9"/>
+    <path d="M0 36h378v18H0Z" fill="#6d28d9"/>
+    <text x="24" y="35" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="800" fill="#ffffff">Obsidian Vault</text>
+
+    <g transform="translate(24 82)">
+      <text x="0" y="0" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="800" fill="#4c1d95">wzh-twitter</text>
+      <text x="16" y="34" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#111827">monthly</text>
+      <text x="34" y="66" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#111827">2026</text>
+      <rect x="50" y="84" width="238" height="32" rx="8" fill="#ede9fe"/>
+      <text x="64" y="106" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="800" fill="#4c1d95">2026-04.md</text>
+      <text x="34" y="148" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#111827">assets</text>
+      <text x="52" y="180" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#111827">2026 / 2026-04</text>
+    </g>
+
+    <g transform="translate(24 306)">
+      <rect width="330" height="82" rx="12" fill="#f8fafc" stroke="#e5e7eb"/>
+      <text x="18" y="27" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="700" fill="#111827">&lt;!-- tweet_id: 191234... --&gt;</text>
+      <text x="18" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#334155">![[wzh-twitter/assets/2026/2026-04/...jpg]]</text>
+    </g>
+  </g>
+
+  <g transform="translate(470 406)">
+    <path d="M0 0h32" stroke="#0ea5e9" stroke-width="8" stroke-linecap="round"/>
+    <path d="M22-12 42 0 22 12" fill="none" stroke="#0ea5e9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(766 406)">
+    <path d="M0 0h30" stroke="#0ea5e9" stroke-width="8" stroke-linecap="round"/>
+    <path d="M20-12 40 0 20 12" fill="none" stroke="#0ea5e9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(108 660)">
+    <rect width="220" height="38" rx="19" fill="#dbeafe"/>
+    <text x="24" y="25" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="800" fill="#1d4ed8">No companion server</text>
+    <rect x="240" width="230" height="38" rx="19" fill="#dcfce7"/>
+    <text x="264" y="25" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="800" fill="#166534">Media saved locally</text>
+    <rect x="490" width="250" height="38" rx="19" fill="#fee2e2"/>
+    <text x="514" y="25" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="15" font-weight="800" fill="#991b1b">Retry queue included</text>
+  </g>
+</svg>

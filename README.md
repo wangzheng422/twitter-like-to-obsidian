@@ -130,6 +130,10 @@ make release TAG=v1.0.1
 
 GitHub release publishing requires the GitHub CLI (`gh`) to be installed and authenticated.
 
+## Privacy
+
+See [PRIVACY.md](PRIVACY.md) for the extension privacy policy.
+
 ## Notes
 
 - The extension only captures tweets that appear in the browser DOM, so keep scrolling to load more likes.
